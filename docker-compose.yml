@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  ist402team4todolist:
+    image: ist402team4todolist
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo List Team 4</title>
+</head>
+<body style="background-color: #FFA781">
+        <div class="label">
+            <h1 style="font-size: 50px; text-align:center; color: #5B0E2D;">Todo List Team 4</h1>
+            <h2 style="font-size: 30px; text-align:center; color: #5B0E2D;">Simplify Scripting</h2>
+            <h2 style="font-size: 20px; text-align:center; color: #5B0E2D;">By: Rickey, Engjell, Meet, Aman, and Victor</h2>
+            
+
+                <form style="text-align:center;" action="/task" method="post">
+                    <p><input type="text" name="content"><input  style="font-size: 15px; color: #5B0E2D;" type="submit" value="  Add task  "></p>
+                </form>
+
+                <h3 style="font-size: 30px; color: #5B0E2D;">If the TASK is crossed out = Complete!</h3>
+                
+                <ol>
+                    {% for task in tasks %}
+                        <li style="font-size: 25px; color: #5B0E2D;">
+                            {% if task.done %} <strike> {% endif %}{{ task.content }} {% if task.done %} </strike>{% endif %}
+                            <br>
+                            <a href="/done/{{ task.id }}"><input  style="font-size: 15px; color: #5B0E2D;" type="reset" value="Complete/Uncomplete"></a>
+                            <a href="/delete/{{ task.id }}"><input  style="font-size: 15px; color: #5B0E2D;" type="reset" value="Delete"></a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+    </body>
+</html>
